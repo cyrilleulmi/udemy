@@ -1,24 +1,11 @@
-#language: generic 
-#sudo: required
-#
-#services:
-#    - docker
-#
-#before_install:
-#    - docker build -t culmi/docker-react -f ./docker/workflow/frontend/Dockerfile.dev ./docker/workflow/frontend
-#
-#script:
-#    - docker run -e CI=true culmi/docker-react npm run test
-#
-#deploy:
-#    provider: elasticbeanstalk
-#    region: "us-east-2"
-#    app: "docker-react"
-#    env: "DockerReact-env"
-#    bucket_name: "elasticbeanstalk-us-east-2-565659713874"
-#    bucket_path: "docker-react"
-#    on:
-#        branch: master
-#
-#    access_key_id: $AWS_ACCESS_KEY
-#    secret_access_key: $AWS_SECRET_KEY
+language: generic 
+sudo: required
+
+services:
+    - docker
+
+before_install:
+    - docker build -t culmi/docker-react -f ./docker/workflow/frontend/Dockerfile.dev ./docker/workflow/frontend
+
+script:
+    - docker run -e CI=true culmi/docker-react npm run test
