@@ -8,7 +8,7 @@ before_install:
     - docker build -t culmi/react-test -f ./docker/complex/client/Dockerfile.dev ./docker/complex/client
 
 script:
-    - docker run culmi/docker-test npm run test -- --coverage
+    - docker run culmi/react-test npm run test -- --coverage
 
 after_success:
     - docker build -t culmi/multi-client ./docker/complex/client
